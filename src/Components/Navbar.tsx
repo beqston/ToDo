@@ -18,7 +18,7 @@ const Navbar = ()=>{
 
                     <li onClick={()=> navigate("/bookmark")} className="flex text-[#252931] font-medium  w-[90%] m-auto gap-x-[12px] items-center cursor-pointer hover:bg-[#E7E8EA] p-[1rem]">
                         <img className="w-[20px] h-[20px] " src={bookmark} alt="bookmark" />
-                        <Link to={"/bookmark"}>Bookmark</Link>
+                        <Link to={"/bookmark"}>Important</Link>
                     </li>
                 </ul>
             </nav>

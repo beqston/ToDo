@@ -8,7 +8,7 @@ const Header = ()=> {
 
             <div className="relative ml-[30px] my-[14px] w-[430px] h-[40px] flex items-center">
                 <img src={search} alt="search" className="absolute left-[14px] w-[22px] h-[22px] "/>
-                <input className="bg-[#C7CAD0] w-[430px] h-[40px] rounded-[8px] placeholder: pl-[42px] text-[14px] " type="text" placeholder="search"/>
+                <input className="bg-[#C7CAD0] w-[430px] h-[40px] rounded-[8px] placeholder: pl-[42px] placeholder:text-[14px] placeholder:font-bold placeholder:text-[black] " type="text" placeholder="search"/>
             </div>
 
             <div className="flex items-center absolute top-[12px] right-[40px] ">

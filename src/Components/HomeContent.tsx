@@ -11,7 +11,7 @@ const HomeContent =()=> {
 
     const [innerHeight, setInnerHeight] = useState(false);
     const [showIcon, setShowIcon] = useState<number>();
-    const [shouMenu, setShowMenu] = useState<number>();
+    const [showMenu, setShowMenu] = useState<number>();
     const [hiddenMenu, setHiddenMenu] = useState(false)
 
 
@@ -30,10 +30,15 @@ const HomeContent =()=> {
 
     const handlShowMenu = (index: number)=> {
         setShowMenu(index)
+        setHiddenMenu(!hiddenMenu)
     }
 
     const handlHiddenMenu = ()=> {
-        setHiddenMenu(!hiddenMenu)
+       if(showMenu){
+        if(showMenu >= 0){
+            setShowMenu(-1)
+        }
+       }
     }
 
     const todoArr = [
@@ -83,7 +88,7 @@ const HomeContent =()=> {
                                 }
 
                                 {
-                                   hiddenMenu && shouMenu === index &&              
+                                   hiddenMenu && showMenu === index &&              
                                     <div className={` absolute max-w-[192px] w-[80%] h-[190px] rounded-[8px] ${innerHeight?"bottom-[38px]":"top-[48px]"}  ${innerHeight?"left-[40px]":"right-[10px]"}`}>
                                     <nav className="h-[100%] bg-[#F6F6F7] p-[10px]">
                                         <ul className="flex flex-col justify-center gap-y-[14px]">
