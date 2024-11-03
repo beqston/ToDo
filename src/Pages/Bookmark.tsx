@@ -1,7 +1,12 @@
+import Navbar from "../Components/Navbar";
+
+
 const Bookmark = ()=> {
     return(
         <>
-            Bookmark
+            <div className="max-w-[290px]">
+                <Navbar />
+            </div>
         </>
     )
 }
