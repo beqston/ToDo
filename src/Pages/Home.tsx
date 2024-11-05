@@ -6,11 +6,11 @@ const Home = ()=>{
     return(
         <main className="w-full flex bg-[#F6F6F7]">
 
-            <div className="w-[290px] ">
+            <div className="w-[20%] ">
                 <Navbar />
             </div>
 
-            <div className=" w-full md:flexw-[80%] ">
+            <div className=" w-full md: w-[80%] ">
                 <Header />
                 <div className="m-[32px]">
                     <HomeContent />

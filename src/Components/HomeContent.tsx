@@ -5,7 +5,7 @@ import bookmark from "../assets/Photo/bookmark.png"
 import complete from "../assets/Photo/complete.png"
 import edit from "../assets/Photo/edit.png"
 import detele from "../assets/Photo/delete.png"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 const HomeContent =()=> {
 
@@ -32,29 +32,6 @@ const HomeContent =()=> {
         },
     ])
 
-    
-    // const todoArrs = [
-    //     {
-    //         id:1,
-    //         data:" 5/03/2024",
-    //         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
-    //     },
-    //     {
-    //         id:2,
-    //         data:" 4/03/2024",
-    //         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim  "
-    //     },
-    //     {
-    //         id:3,
-    //         data:" 3/03/2024",
-    //         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur"
-    //     },
-    //     {
-    //         id:4,
-    //         data:" 2/03/2024",
-    //         description: "Lorem ipsum dolor sit amet, consectetur"
-    //     },
-    // ]
 
     const [innerHeight, setInnerHeight] = useState(false);
     const [showIcon, setShowIcon] = useState<number>();
@@ -95,12 +72,6 @@ const HomeContent =()=> {
         setAddTask(!addTask)
     }
 
-
-
-
-
-
-
     const handlAddTask = ()=>{
 
 
@@ -132,8 +103,6 @@ const HomeContent =()=> {
                 <img onClick={handlAddTaskValue} src={add} alt="add" className="w-[24px] h-[24px] cursor-pointer"/>
                 <input type="text" placeholder="Add a task" onChange={(e)=> setDescription(e.target.value)} value={description} className="w-[570px] h-[48px] rounded-[8px] outline-0 pl-[4px]" />
             </div>
-
-            {/* work code */}
 
             {
                 addTask && 

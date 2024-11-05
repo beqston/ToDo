@@ -6,11 +6,11 @@ const Bookmark = ()=> {
     return(
         <main className="w-full flex bg-[#F6F6F7]">
 
-            <div className="max-w-[290px] w-[20%] ">
+            <div className="w-[20%] ">
                 <Navbar />
             </div>
 
-            <div className="w-[80%] ">
+            <div className=" w-full md: w-[80%] ">
                 <Header />
             </div>
             
