@@ -1,8 +1,10 @@
+import ChartContent from "../Components/ChartContent";
 import Header from "../Components/Header";
 import Navbar from "../Components/Navbar";
 
 
-const Bookmark = ()=> {
+
+const Dashboard = ()=> {
     return(
         <main className="w-full flex bg-[#F6F6F7]">
 
@@ -12,10 +14,12 @@ const Bookmark = ()=> {
 
             <div className="sm: w-full md: w-[80%] ">
                 <Header />
+                <ChartContent />
+
             </div>
             
         </main>
     )
 }
 
-export default Bookmark;
+export default Dashboard;

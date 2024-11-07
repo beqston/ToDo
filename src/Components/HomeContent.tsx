@@ -80,9 +80,10 @@ const HomeContent =()=> {
         const date = new Date()
         const year = date.getFullYear()
         const moths = date.getMonth()
-        const day = date.getDay()
+        const day = date.getDate()
+
     
-        const fullDate = `${day}/${moths}/${year}`
+        const fullDate = `${day}/${moths + 1}/${year}`
 
         setTodoArrs([
             ...todoArr, 
@@ -123,7 +124,7 @@ const HomeContent =()=> {
                 {
                     todoArr.map((item, index)=> {
                         return(
-                            <div key={item.id} onMouseOver={()=> handlHover(index)} onMouseLeave={()=> setShowIcon(-1)} className={`w-[22%] max-w-[38%] min-w-[280px] p-[16px] flex-wrap relative pt-[12px rounded-xl ${(index + 1 ) % 4 === 0? "bg-[#FCE4E4]": (index + 1) % 3 == 0? "bg-[#E4F6FC]": (index + 1) % 2 === 0? "bg-[#FBF0E4]":index == 0?"bg-[#E3EBFC]": index === 4? "bg-[#E3EBFC]":index ==6?"bg-[#E4F6FC]": index ===7?"bg-[#FBF0E4]": index === 9?"bg-[#FBF0E4]":"" } hover:bg-[#E3EBFC]`}>
+                            <div key={item.id} onMouseOver={()=> handlHover(index)} onMouseLeave={()=> setShowIcon(-1)} className={`w-[22%] max-w-[38%] min-w-[280px] p-[16px] flex-wrap relative pt-[12px rounded-xl ${(index + 1 ) % 4 === 0? "bg-[#FCE4E4]": (index + 1) % 3 == 0? "bg-[#E4F6FC]": (index + 1) % 2 === 0? "bg-[#FBF0E4]":index == 0?"bg-[#E3EBFC]":"bg-[#FBF0E4]" } hover:bg-[#E3EBFC]`}>
                                 <div className="flex items-center w-[110px] gap-x-[8px] bg-white rounded-[20px] p-[8px] pl-[14px]">
                                         <img src={dataIMG} alt="data"  className="w-[15px] h-[17px] "/>
                                      <p className="text-[0.8rem]">{item.data}</p>
