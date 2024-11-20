@@ -14,8 +14,7 @@ const Dashboard = ()=> {
 
             <div className="sm: w-full md: w-[80%] ">
                 <Header />
-                {/* <ChartContent /> */}
-
+                <ChartContent />
             </div>
             
         </main>

@@ -101,13 +101,13 @@ import { Data } from "../types/types";
       const handleComplete = async (id: number) => {
         queryClient.setQueryData(['todos'], (prevData: Data[]) => {
           return prevData.map(todo => 
-            todo.id === id ? { ...todo, important: !todo.important } : todo
+            todo.id === id ? { ...todo, complate: !todo.complate } : todo
           );
         });
       
         const { error } = await supabase
           .from('todos')
-          .update({ complete: true})  
+          .update({ complate: true})  
           .eq('id', id);
       
         if (error) {

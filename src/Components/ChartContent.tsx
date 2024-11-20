@@ -1,6 +1,13 @@
+import { useQuery } from "@tanstack/react-query";
+import { supabase } from "../Supabase/supabase";
 import PieChart from "./Pie";
+import useFunctions from "../hooks/useFunctions";
+import useChartjs from "../hooks/useChartjs";
 
 const ChartContent = ()=> {
+
+    const {alltodoLengtth, inProgress, done, stuck} = useChartjs();
+
     return (
         <main className="w-full mt-[50px] min-h-screen">
             <div className="w-[97%] m-auto flex gap-[24px] flex-wrap  max-md: justify-center  max-xl: justify-around  ">
@@ -10,7 +17,7 @@ const ChartContent = ()=> {
                         All Task
                     </h3>
                     <h2 className="text-[2rem] h-screen text-[#252931] font-medium flex justify-center items-center ">
-                        5
+                        {alltodoLengtth}
                     </h2>
                 </div>
 
@@ -19,7 +26,7 @@ const ChartContent = ()=> {
                         In Progress
                     </h3>
                     <h2 className="text-[2rem] h-screen text-[#252931] font-medium flex justify-center items-center ">
-                        2
+                        {inProgress}
                     </h2>
                 </div>
 
@@ -28,7 +35,7 @@ const ChartContent = ()=> {
                         Stuck
                     </h3>
                     <h2 className="text-[2rem] h-screen text-[#252931] font-medium flex justify-center items-center ">
-                       2
+                       {stuck}
                     </h2>
                 </div>
 
@@ -37,20 +44,23 @@ const ChartContent = ()=> {
                         Done
                     </h3>
                     <h2 className="text-[2rem] h-screen text-[#252931] font-medium flex justify-center items-center ">
-                        1
+                        {done}
                     </h2>
                 </div>
 
-          
-
             </div>
 
-            <div className="w-[300px] ">
-                <PieChart />
+            <div className="w-[97%] mt-[24px] m-auto pb-[2rem]  mb-[2rem] ">
+
+                <h3 className="text-[#252931] text-[24px] font-medium pl-[18px] bg-white border-b-2 ">Task by Status</h3>
+
+                <div className="w-full bg-white">
+                    <div className="w-[40%] m-auto ">
+                        <PieChart />
+                    </div>
+                    
+                </div>
             </div>
-
-            
-
         </main>
     )
 }

@@ -1,21 +1,24 @@
 import { Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement, CategoryScale, LinearScale } from 'chart.js';
+import useChartjs from '../hooks/useChartjs';
 
 ChartJS.register(ArcElement, Title, Tooltip, Legend, CategoryScale, LinearScale);
 
 const PieChart = () => {
+  const {alltodoLengtth, inProgress, done, stuck} = useChartjs();
+
   const data = {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple'],
+    labels: ['Your Activities', 'Processing Tasks', 'Cancelled Tasks', 'Done Tasks', 'Waiting to do'],
     datasets: [
       {
         label: 'My Pie Chart',
-        data: [12, 19, 3, 5, 2],  
+        data: [alltodoLengtth, inProgress, done, stuck],  
         backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
+          '#00A9D7',
+          '#FFA400',
+          '#3A8DDE',
+          '#80BC00',
+          '#6E7C7C',
         ],
         borderColor: [
           'rgba(255, 99, 132, 1)',
@@ -34,7 +37,7 @@ const PieChart = () => {
     plugins: {
       title: {
         display: true,
-        text: 'Pie Chart Example',
+        text: '',
       },
       tooltip: {
         callbacks: {

@@ -73,11 +73,11 @@ const Bookmark = () => {
 
   return (
     <main className="w-full flex bg-[#F6F6F7]">
-      <div className="md:w-[20%]">
+      <div className="w-[20%]">
         <Navbar />
       </div>
 
-      <div className="sm:w-full md:w-[80%] ml-[10px] mr-[10px] ">
+      <div className="w-full md: w-[80%] ">
         <Header />
         <div className="mt-4 flex gap-[24px] ">
           <section className="w-full">
