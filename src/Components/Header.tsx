@@ -20,8 +20,7 @@ const Header = ()=> {
      
     const handleSearch = ()=> {
         if(searchTodoText.length == 0)  return
-        setSearchTodoText("")
-        return navigate(`/search/${searchTodoText}`)
+        navigate(`/search/${searchTodoText}`)
     }
 
     const handlInputShow = ()=> {
@@ -34,7 +33,6 @@ const Header = ()=> {
         } 
         if(e.key == "Enter"){
             navigate(`/search/${searchTodoText}`)
-            setSearchTodoText("")
         }
     }
 

@@ -10,7 +10,6 @@ const Search = ()=> {
     const fetchTodos = async () => {
         const { data, error } = await supabase.from("todos").select("*");
         if (error) throw new Error(error.message);
-        console.log(data);
         return data;
       };
       const { isLoading, isError, data, error } = useQuery({
@@ -18,7 +17,7 @@ const Search = ()=> {
         queryFn: fetchTodos,
       });
       
-    const {searchTodoText} = useContext(SearchTodoContext) as SearchContextType
+    const {searchTodoText, setSearchTodoText} = useContext(SearchTodoContext) as SearchContextType
     
     const {userId} = useFunctions();
 
@@ -29,7 +28,7 @@ const Search = ()=> {
     return(
         <main className="p-[2rem] ">
 
-            <Link to={"/"}>Go Home Page</Link>
+            <Link to={"/"} onClick={()=> setSearchTodoText("")}>Go Home Page</Link>
             
             {
                data?.filter((search)=> search.user_id === userId).filter((search)=>search.description.toLowerCase().includes(searchTodoText)).map((search, index)=> {
