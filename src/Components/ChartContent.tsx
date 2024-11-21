@@ -1,7 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
-import { supabase } from "../Supabase/supabase";
 import PieChart from "./Pie";
-import useFunctions from "../hooks/useFunctions";
 import useChartjs from "../hooks/useChartjs";
 
 const ChartContent = ()=> {

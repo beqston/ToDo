@@ -3,25 +3,41 @@ import arrow from "../assets/Photo/arrow.png"
 import burgMenu from "../assets/Photo/burgMenu.png"
 import bgProfile from "../assets/Photo/bgProfile.png"
 import lineY from "../assets/Photo/LineY.png"
-import { useRef, useState } from "react"
+import { useContext, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import MyDay from "../assets/Photo/MyDay.png"
 import bookmark from "../assets/Photo/bookmark.png"
 import dashboard from "../assets/Photo/dashboard.png"
 import { SignedIn, SignedOut, UserButton } from "@clerk/clerk-react"
+import { SearchContextType, SearchTodoContext } from "../context/SearchContext"
 
 const Header = ()=> {
     const[showInput, setShowInput] = useState(false);
     const[ showMenu, setShowMenu] = useState("hidden");
 
-    const searchTodo = useRef()
-
+    const {searchTodoText, setSearchTodoText} = useContext(SearchTodoContext) as SearchContextType
+     const navigate = useNavigate();
+     
+    const handleSearch = ()=> {
+        if(searchTodoText.length == 0)  return
+        setSearchTodoText("")
+        return navigate(`/search/${searchTodoText}`)
+    }
 
     const handlInputShow = ()=> {
         setShowInput(!showInput)
     }
 
-    const navigate = useNavigate();
+    const handeSearch = (e: React.KeyboardEvent<HTMLInputElement>)=> {
+        if(searchTodoText.length == 0){
+            return
+        } 
+        if(e.key == "Enter"){
+            navigate(`/search/${searchTodoText}`)
+            setSearchTodoText("")
+        }
+    }
+
 
     const handlShowMenu = ()=> {
         if(showMenu === "hidden"){
@@ -31,13 +47,15 @@ const Header = ()=> {
         }
     }
 
+    
+
     return(
     <>
         <header className="hidden md:flex w-full flex  border-b-[1px] border-[#C7CAD0]">
 
             <div className="relative ml-[30px] my-[14px] w-[430px] h-[40px] flex items-center">
-                <img src={search} alt="search" className="absolute left-[14px] w-[22px] h-[22px] "/>
-                <input ref={searchTodo.current} className="bg-[#C7CAD0] w-[430px] h-[40px] rounded-[8px] placeholder: pl-[42px] placeholder:text-[14px] placeholder:font-bold placeholder:text-[black] " type="text" placeholder="search"/>
+                <img onClick={handleSearch} src={search} alt="search" className="absolute cursor-pointer left-[14px] w-[22px] h-[22px] "/>
+                <input onKeyUpCapture={(e)=> handeSearch(e)} value={searchTodoText} onChange={(e)=>setSearchTodoText(e.target.value.toLowerCase())} className="bg-[#C7CAD0] w-[430px] h-[40px] rounded-[8px] placeholder: pl-[42px] placeholder:text-[14px] placeholder:font-bold placeholder:text-[black] " type="text" placeholder="search"/>
             </div>
 
             <div className="flex items-center absolute top-[12px] right-[40px] ">
